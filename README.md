@@ -1,34 +1,40 @@
 # 基于OpenMV的无人驾驶智能小车模拟系统
+![](https://cdn.jsdelivr.net/gh/kelecn/images@master/post291.png)
+**项目作者：@[kelecn](https://github.com/kelecn)**
 
-**作者：谢青桦@kelecn**
+### 一、项目简介
 
-### 一、硬件模块
+基于机器视觉模块OpenMV采集车道、红绿灯、交通标志等模拟路况信息，实现一辆能车道保持、红绿灯识别、交通标志识别、安全避障以及远程WiFi控制的多功能无人驾驶小车。
 
-##### 1、STM32F103ZET6(正点原子精英板F103)
+**编程软件：**
 
-##### 2、OpenMV
+| 硬件模块 | 编程软件                                                     |
+| :------: | :----------------------------------------------------------- |
+|  OpenMV  | 使用OpenMV官方的[OpenMV IDE](https://singtown.com/openmv-download/) |
+| ESP8266  | 使用Arduino官方的[Arduino IDE](https://www.arduino.cc/en/software) |
+|  STM32   | 使用ARM官方的[Keil uVision5](https://www2.keil.com/mdk5)（ARM版） |
 
-##### 3、HC-SR04
+### 二、硬件系统
 
-##### 4、双路 H 桥电机驱动
+本项目《基于OpenMV的无人驾驶智能小车模拟系统》，主要依靠机器视觉模块OpenMV通过图像处理的方式获取实时的路况信息，以及超声波传感器获取障碍物距离信息，得到的路况数据再通过串口传输到主控器STM32上面，STM32会将实时的路况信息处理成智能小车的运动控制指令，让智能小车实现红绿灯识别、交通标志识别以及车道实时保持的功能，还有STM32也会通过WiFi模块ESP8266与手机端进行路况数据和控制指令的远程交互。硬件系统框图如下：
 
-##### 5、ESP8266
+![](https://cdn.jsdelivr.net/gh/kelecn/images@master/post292.png)
 
-##### 6、直流电机、电源、模型车、导线等
+下面简单介绍一下，整个系统用到的硬件模块。
 
-### 二、编程软件
+|   硬件模块   | 型号                                                 |
+| :----------: | ---------------------------------------------------- |
+|    主控器    | STM32F103ZET6(正点原子精英板F103)                    |
+|   视觉模块   | OpenMV4 H7 PLUS（STM32H750VBT6 +OV7725）             |
+| 超声波传感器 | HC-SR04                                              |
+|   WiFi模块   | ESP8266                                              |
+|    执行器    | 双路 H 桥电机驱动、直流电机、开发板自带的LED和蜂鸣器 |
+|   控制平台   | 安装Blinker APP的安卓/苹果手机                       |
+|     其他     | 电源、模型车、导线若干等                             |
 
-##### 1、OpenMV
+具体的硬件电路连接框图如下:
 
-使用OpenMV官方的[OpenMV IDE](https://singtown.com/openmv-download/)
-
-##### 2、ESP8266
-
-使用Arduino官方的[Arduino IDE](https://www.arduino.cc/en/software)
-
-##### 3、STM32
-
-使用[Keil uVision5](https://www2.keil.com/mdk5)（ARM版）
+![](https://cdn.jsdelivr.net/gh/kelecn/images@master/post293.png)
 
 ### 三、软件系统
 
