@@ -3,7 +3,7 @@
 
 **项目作者：@[kelecn](https://github.com/kelecn)**
 
-If you cannot read Chinese, you can click here:[README-EN](/README-EN.md)
+If you cannot read Chinese, you can click here:[README-EN](/README-EN.html)
 
 ## 一、项目简介
 
